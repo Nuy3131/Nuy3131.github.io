@@ -1,0 +1,135 @@
+* {
+    background: #060606;
+    color: white;
+}
+header {
+    padding-top: 10px;
+    position: sticky;
+    text-align: center;
+    border-bottom: 1px solid whitesmoke;
+}
+body {
+    margin: 0;
+}
+p {
+    font-size: 35px;
+}
+h2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+h3 {
+    color: #6fe7ff;
+}
+h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.Box {
+    border: 3px solid whitesmoke;
+    border-radius: 35px;
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+a {
+    color: lightskyblue;
+}
+a:active {
+    color: skyblue;
+}
+img {
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    padding: 5px;
+}
+img:hover {
+    box-shadow: 0 0 5px 1px lightskyblue;
+}
+
+.Igris, .Sukuna, .Alter_Saber, .a_v, .AOTR, .BossRush {
+    margin-top: 50px;
+    margin-left: 75px;
+    display: inline-block;
+    text-align: center;
+}
+.AV {
+    background-image: url(images/Site-background-dark.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.BR {
+    width: 480px;
+    height: 270px;
+}
+.mainpage {
+    background-image: url(images/1150694.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.tips {
+    padding-top: 150px;
+    padding-left: 0px;
+    text-decoration-line: underline;
+}
+table {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+th {
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid #aaa;
+    background-color: #2b2b2b;
+    border-color:gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+td {
+    border: 1px solid gray;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.imbg {
+    width: 85px;
+    height: 85px;
+}
+.secret {
+    border-color: red;
+    color: red;
+    font-size: 20px;
+}
+.rare {
+    border-color: blue;
+    color: blue;
+    font-size: 20px;
+}
+.epic {
+    border-color: purple;
+    color: purple;
+    font-size: 20px;
+}
+.legendary {
+    border-color: gold;
+    color: gold;
+    font-size: 20px;
+}
+.main {
+    text-align: center; 
+    text-decoration: underline; 
+    color: aqua;
+}
+.headpage {
+    text-align: center;
+    font-weight: bold;
+    font-style: oblique;
+}
