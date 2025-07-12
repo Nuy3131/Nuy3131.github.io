@@ -45,8 +45,6 @@ li, .inputb {
     color: white;
     text-align: center;
     height: 50px;
-    width: 150px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
     font-size: 40px;
 }

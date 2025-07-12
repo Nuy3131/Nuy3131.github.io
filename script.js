@@ -70,8 +70,8 @@ function getepicplusfamily() {
 // DOM Elements
 const rollBtn = document.getElementById("rollBtn");
 const rollepicBtn = document.getElementById("rollepicBtn");
-const stoprollBtn = document.getElementById("stoprollBtn");
-const resetlogBtn = document.getElementById("resetlogBtn");
+const rollMyt = document.getElementById("rollMth")
+const resetlogBtn = document.getElementById("resetlogButton");
 
 const commonCElm = document.getElementById("commonC");
 const rareCElm = document.getElementById("rareC");
@@ -81,12 +81,10 @@ const mythicalCElm = document.getElementById("mythicalC");
 const rerollCElm = document.getElementById("rerollC");
 const logElm = document.getElementById("log");
 
-// DOM For Custom Roll
-const cutmInput = document.getElementById('customInput');
-const cutmRerollBtn = document.getElementById('customRerollBtn');
-
 // State Variables
 let rerollC = 0;
+let foundMty = false;
+let arerolling = false;
 
 function doroll(rng) {
     rerollC++;
@@ -107,6 +105,8 @@ function doroll(rng) {
     if (result === eppf.name) {
         epp = 0;
     }
+    if (result === "Mythical Family")
+        foundMty = true;
 
     // Update Pity Counts
     eppC.textContent = epp;
@@ -138,5 +138,54 @@ rollepicBtn.addEventListener("click", () => {
     for (i = 0; i < 400; i++) {
         doroll();
     }
-}
-);
+});
+
+// Auto Roll Till Get Mythical
+rollMyt.addEventListener("click", () => {
+    if(foundMty || arerolling) return;
+    arerolling = true;
+
+    function roller() {
+        if(!arerolling || foundMty) return;
+        const starTime = performance.now();
+
+        while(!foundMty && arerolling && (performance.now() - starTime) < 16){
+            doroll();
+        }
+
+        // Set Delay
+        setTimeout(() => {
+            if (arerolling && !foundMty) {
+                requestAnimationFrame(roller);
+            }
+        },10);
+    }
+    roller()
+});
+
+// Reset Log
+resetlogBtn.addEventListener("click", () => {
+    rerollC = 0;
+    foundMty = false;
+    arerolling = false;
+    epp = 0;
+
+    // Reset Display
+    rerollCElm.textContent = rerollC;
+    eppC.textContent = epp;
+
+    // Reset Family Counts
+    fmlscount["Common Family"] = 0;
+    fmlscount["Rare Family"] = 0;
+    fmlscount["Epic Family"] = 0;
+    fmlscount["Legendary Family"] = 0;
+    fmlscount["Mythical Family"] = 0;
+    commonCElm.textContent = 0;
+    rareCElm.textContent = 0;
+    epicCElm.textContent = 0;
+    legendaryCElm.textContent = 0;
+    mythicalCElm.textContent = 0;
+
+    // Clear Log
+    logElm.innerHTML = ""
+});
